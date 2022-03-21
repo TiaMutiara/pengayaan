@@ -1,0 +1,24 @@
+.jumbotron {
+  background-color: #85a7ee;
+  padding-top: 1rem;
+  margin-top: 3rem;
+  font-family:  Helvetica;
+
+}
+
+section {
+  padding-top: 5rem;
+}
+#contact {
+  background-color: #f3f4f5;
+  font-family:  Helvetica;
+}
+#about {
+  background-color: #f3f4f5;
+  font-family: Helvetica;
+}
+#project {
+  background-color: #85a7ee ;
+  font-family: Arial, Helvetica, sans-serif;
+
+}
