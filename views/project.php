@@ -1,29 +1,68 @@
-<div class="container-fluid px-2 px-md-4">
-   <div class="card card-body min-height-400 border-radius-xl mt-4"> 
-   <div class="col-10">
-              <div class="card card-plain h-100">
-                <div class="card-header pb-0 p-3">
-                  <div class="row">
-                    <div class="col-md-8 d-flex align-items-center">
-                      <h6 class="mb-0">Project</h6>
-                    </div>
-                    <div class="col-md-4 text-end">
-                      <a href="javascript:;">
-                        <i class="bi bi-file-earmark-plus-fill"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <div class="card" style="width: 18rem;">
-  <img src="../tia.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Tia Mutiara</h5>
-    <p class="card-text">aku hari ini sedang sekolah gaisssssss</p>
-    <a href="#" class="btn btn-primary">edit</a>
-    <a href="#" class="btn btn-primary">hapus</a>
-  </div>
-</div>
+<?php
+if ($_GET['hapus']) {
+  $id = $_GET['hapus'];
+  $q = mysqli_query($koneksi, "delete from project where id_p=$id");
+  
+}
+?>
+
+<div class="row">
+  <div class="col-md-12">
+    <h1>
+      Project
+      <a href="?menu=tambah-project" class="btn btn-primary">Tambah</a>
+    </h1>
+    <table class="table table-striped" id="">
+      <thead>
+        <tr>
+          <th width="5%">#</th>
+          <th width="15%">FOTO</th>
+          <th>NAMA</th>
+          <th>KETERANGAN</th></th>
+          <th width="20%">AKSI</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        $q = mysqli_query($koneksi, "select * from project");
+        while($data = mysqli_fetch_array($q)) {?>
+        <tr>
+          <td><?=$data['id_p']?></td>
+          <td><img src="../foto/<?=$data['foto']?>" width="130px"></td>
+          <td><?=$data['nama_p']?></td>
+          <td><?=$data['keterangan']?></td>
+          <td>
+            <a href="#" class="btn btn-primary">Ubah</a>
+            <a onclick="hapus(<?=$data['id_p']?>)" class="btn btn-danger">hapus</a>
+          </td>
+        </tr>
+        <div class="modal fade" id="modal-<?=$data['id_p']?>">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header bg-danger text-white">
+                YAKIN HAPUS?
+              </div>
+              <div class="modal-body">
+                apakah yakin ingin menghapus ini?
+              </div>
+              <div class="modal-footer">
+                <a onclick="hapus(<?=$data?>" class="btn btn-danger">ya</a>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
               </div>
             </div>
-   </div>
+          </div>
+        </div>
+        <?php } ?>
+      </tbody>
+    </table>
+  </div>
 </div>
+
+<script>
+  function hapus(id) {
+    let h = confirm('hapus projek ini?');
+    if(h) {
+      location.href = "?menu=projek&hapus="+id;
+    }
+  }
+</script>
