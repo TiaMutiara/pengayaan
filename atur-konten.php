@@ -11,6 +11,12 @@
     else if($_GET['menu'] == "projek"){
     include("views/project.php");
 }
+    else if($_GET['menu'] == "tambah-project"){
+    include("views/tambah-project.php");
+}
+    else if($_GET['menu'] == "ubah-project"){
+    include("views/ubah-project.php");
+}
     else if($_GET['menu'] == "kontak"){
     include("views/contact.php");
 }

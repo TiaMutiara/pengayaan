@@ -1,33 +1,43 @@
+<?php
+if (isset($_POST['simpan'])) {
+  $column1 = $_POST['column1'];
+  $column2 = $_POST['column2'];
 
-<div class="container-fluid px-2 px-md-4">
-   <div class="card card-body min-height-400 border-radius-xl mt-4"> 
-   <div class="col-10">
-              <div class="card card-plain h-100">
-                <div class="card-header pb-0 p-3">
-                  <div class="row">
-                    <div class="col-md-8 d-flex align-items-center">
-                      <h6 class="mb-0">About</h6>
-                    </div>
-                    <div class="col-md-4 text-end">
-                      <a href="javascript:;">
-                        <i class="fas fa-user-edit text-secondary text-sm" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit Profile"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                <hr>
-                <div class="card-body p-3">
-                  <p class="text-sm">
-                  Hai namaku Tia Mutiara... aku lahir di Tasikmalaya pada tanggal 26 September 2003. tempat tinggalku sekarang di kampung gareumpay, Purbaratu. Aku anak terakhir loh dari 3 bersaudara, hoby ku membaca
-                </p>
-                  <hr>
-                  <div class="card-body p-3">
-                  <p class="text-sm">
-                  Ini cita-citaku.... dulu waktu masih kecil cita-citaku menjadi seorang fotografer, tapi dengan seiring berjalannya waktu, sekarang saya bercita-cita menjadi seorang web developer yang sukses.
-                  </p>
-                    <hr class="horizontal gray-light my-4">
-                </div>
-              </div>
-            </div>
-   </div>
+  $simpan = mysqli_query($koneksi, 
+  "update about set column1 ='$column1', column2 ='$column2'
+   where id_about=1"
+  );
+
+  if($simpan) {
+    $pesan = "<div class='alert alert-success'>Berhasil diperbaharui</div>";
+  } else {
+    $pesan = "<div class='alert alert-danger'>Terjadi kesalahan</div>";
+  }
+}
+
+// ACTION UNTUK NGAMBIL DATA SAAT INI
+$query = mysqli_query($koneksi, "SELECT * FROM `about`");
+$data = mysqli_fetch_assoc($query);
+?>
+
+<div class="row mb-5">
+  <div class="col-md-12">
+    <h1>Update About</h1>
+    <div class="row">
+      <div class="col-md-6">
+      <?=@$pesan?>
+        <form action="" method="post">
+          <div class="form-group">
+            <label for="">Kolom 1</label>
+            <textarea name="column1" id="" cols="30" rows="10"><?=$data['column1']?></textarea>
+          </div>
+          <div class="form-group">
+            <label for="">Kolom 2</label>
+            <textarea name="column2" id="" cols="30" rows="10"><?=$data['column2']?></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" name="simpan">SIMPAN</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>

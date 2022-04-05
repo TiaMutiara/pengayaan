@@ -40,7 +40,7 @@ $data = mysqli_fetch_assoc($query);
         <form action="" method="post">
           <div class="form-group">
             <label for="">NAMA LENGKAP</label>
-            <input name="nama" type="text" value="<?=$data['nama']?>" class="form-control" placeholder="ex: Zul Hilmi">
+            <input name="nama" type="text" value="<?=$data['nama']?>" class="form-control" placeholder="ex: Tia Mutiara">
           </div>
           <div class="form-group">
             <label for="">JABATAN</label>
@@ -55,7 +55,7 @@ $data = mysqli_fetch_assoc($query);
             <img src="<?=$data['foto']?>" width="100" style="border-radius:50%">
             <input name="foto" type="text" placeholder="paste URL foto" class="form-control">
           </div>
-          <button type="submit" class="btn btn-danger" name="simpan">SIMPAN</button>
+          <button type="submit" class="btn btn-primary" name="simpan">SIMPAN</button>
         </form>
       </div>
     </div>

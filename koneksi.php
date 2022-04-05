@@ -23,7 +23,7 @@ function tambah($data){
 
   $query = " INSERT INTO contact
             VALUES 
-            ('', '$email', '$nama', '$pesan')
+            ('', '$email', '$nama', '$pesan', '')
             ";
           mysqli_query ($koneksi, $query);
           return mysqli_affected_rows($koneksi);

@@ -10,5 +10,6 @@ include 'atur-konten.php';
 
 
 <?php
+ include('components/logout.php');
 include 'components/corejs.php'
 ?>

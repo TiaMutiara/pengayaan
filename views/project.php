@@ -32,26 +32,11 @@ if ($_GET['hapus']) {
           <td><?=$data['nama_p']?></td>
           <td><?=$data['keterangan']?></td>
           <td>
-            <a href="#" class="btn btn-primary">Ubah</a>
+            <a href="?menu=ubah-project&id=<?=$data['id_p']?>" class="btn btn-primary">Ubah</a>
             <a onclick="hapus(<?=$data['id_p']?>)" class="btn btn-danger">hapus</a>
           </td>
         </tr>
-        <div class="modal fade" id="modal-<?=$data['id_p']?>">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header bg-danger text-white">
-                YAKIN HAPUS?
-              </div>
-              <div class="modal-body">
-                apakah yakin ingin menghapus ini?
-              </div>
-              <div class="modal-footer">
-                <a onclick="hapus(<?=$data?>" class="btn btn-danger">ya</a>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        
         <?php } ?>
       </tbody>
     </table>
