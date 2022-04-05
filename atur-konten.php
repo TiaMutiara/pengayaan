@@ -1,5 +1,5 @@
 <?php
-    if($_GET['menu'] == "home" || $_GET['menu'] == ''){
+    if(@$_GET['menu'] == "home" || @$_GET['menu'] == ''){
     include("views/home.php");
 }
     else if($_GET['menu'] == "profil"){
@@ -21,7 +21,7 @@
     include("views/contact.php");
 }
 else if ($_GET['menu'] == 'logout') {
-    session_start();
+    @session_start();
     session_destroy();
     print `<meta http-equiv="refresh" content="0; url=index.php">`;
   }
