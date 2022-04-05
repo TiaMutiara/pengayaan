@@ -1,5 +1,5 @@
 <?php
-if ($_GET['hapus']) {
+if (@$_GET['hapus']) {
   $id = $_GET['hapus'];
   $q = mysqli_query($koneksi, "delete from project where id_p=$id");
   

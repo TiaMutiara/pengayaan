@@ -1,6 +1,6 @@
 <?php
 // REMOVE MESSAGE
-if($_GET['hapus']) {
+if(@$_GET['hapus']) {
   $id = $_GET['hapus'];
   $delete = mysqli_query($koneksi, 
   "delete from contact where id_k=$id");
