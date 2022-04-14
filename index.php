@@ -97,30 +97,32 @@ $about = mysqli_fetch_assoc($query_a);
     </section>
     <!-- Akhir About-->
     <!-- Project -->
-    <section id="project">
+      <section id="project">
       <div class="container">
-        <div class="row text-center"data-aos="fade-down"
-     data-aos-easing="linear"
-     data-aos-duration="1500">
-            <h2>Project</h2>
+        <div class="row text-center mb-3" data-aos="flip-right">
+          <h2>Project Me</h2>
         </div>
+        
         <div class="row justify-content-evenly">
 
-          <?php 
-          $query_project = mysqli_query($con, "select * from project");
-          while($pro = mysqli_fetch_array($query_project)) { ?>
-              <div class="col-sm-4 mb-4"data-aos="fade-down"
-     data-aos-easing="linear"
-     data-aos-duration="1500">
-                <div class="card">
-                  <img src="img/projects/<?= $pro ["foto"];?>" class="card-img-top" alt="..." />
-                  <div class="card-body">
-                  <h2 class="display-6"><?= $pro["nama_p"];?></h2>
-                    <p class="card-text"><?= $pro["ket"];?></p>
-                  </div>
-                </div>
+          <?php foreach ($project as $pro) { ?>
+          <div class="col-sm-4 mb-4" data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000">
+            <div class="card">
+              <img src="foto/<?= $pro["foto"];?>"  class="card-img-top" alt="..." />
+              <div class="card-body">
+                <h2 class="display-16"><?= $pro["nama_p"];?></h2>
+                <p class="card-text"><?= $pro["keterangan"];?></p>
               </div>
-            <?php } ?>
+            </div>
+          </div>
+          <?php } ?>
+
+        </div>
+      </div>
+
+
 
       </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#808080" fill-opacity="1" d="M0,224L13.3,186.7C26.7,149,53,75,80,42.7C106.7,11,133,21,160,69.3C186.7,117,213,203,240,250.7C266.7,299,293,309,320,282.7C346.7,256,373,192,400,176C426.7,160,453,192,480,186.7C506.7,181,533,139,560,138.7C586.7,139,613,181,640,192C666.7,203,693,181,720,154.7C746.7,128,773,96,800,85.3C826.7,75,853,85,880,117.3C906.7,149,933,203,960,234.7C986.7,267,1013,277,1040,261.3C1066.7,245,1093,203,1120,202.7C1146.7,203,1173,245,1200,240C1226.7,235,1253,181,1280,133.3C1306.7,85,1333,43,1360,69.3C1386.7,96,1413,192,1427,240L1440,288L1440,0L1426.7,0C1413.3,0,1387,0,1360,0C1333.3,0,1307,0,1280,0C1253.3,0,1227,0,1200,0C1173.3,0,1147,0,1120,0C1093.3,0,1067,0,1040,0C1013.3,0,987,0,960,0C933.3,0,907,0,880,0C853.3,0,827,0,800,0C773.3,0,747,0,720,0C693.3,0,667,0,640,0C613.3,0,587,0,560,0C533.3,0,507,0,480,0C453.3,0,427,0,400,0C373.3,0,347,0,320,0C293.3,0,267,0,240,0C213.3,0,187,0,160,0C133.3,0,107,0,80,0C53.3,0,27,0,13,0L0,0Z"></path></svg>    </section>
