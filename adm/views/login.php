@@ -74,7 +74,7 @@
                     <label class="form-label">Email</label>
                     <input v-model="email" type="email" name="email" class="form-control" >
                   </div>
-                  <div class="input-group input-group-outline mb-3" v-if="email.length > 8">
+                  <div class="input-group input-group-outline mb-3" >
                     <label class="form-label">Password</label>
                     <input v-model="password" type="password" name="password" class="form-control" >
                   </div>
@@ -82,6 +82,13 @@
                   
                   <div class="text-center" v-if="password.length > 3">
                     <button type="submit" name="kirim" class="btn bg-gradient-primary w-100 my-4 mb-2">Sign in</button>
+                  </div>
+                  <div class="text-center mt-3">
+                  Don't have an account?
+                    <a href="registrasi.php" class="btn btn-primary">Sign Up</a>
+                  </div>
+                  <div class="text-center mt-3">
+                    <a  href="../index.php" class="btn btn-primary">Kembali</a>
                   </div>
                 </form>
               </div>
